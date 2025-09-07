@@ -3,7 +3,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import joblib
+from xgboost import XGBClassifier
+import plotly.express as px
 
 # -----------------------------
 # Load Trained Model
@@ -99,6 +101,7 @@ if st.sidebar.button("Predict Engagement"):
     prediction = model.predict(X_input)[0]
     engagement_levels = {0: "Low", 1: "Medium", 2: "High"}  # adjust to your encoding
     st.metric("Predicted Engagement Level", engagement_levels[prediction])
+
 
 
 
